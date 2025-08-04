@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Pilot - Travel Planning Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-plane"></i>
+                <h1>Plan Pilot</h1>
+            </div>
+            <p class="subtitle">Your AI-Powered Travel Planning Assistant</p>
+        </header>
+
+        <main class="main-content">
+            <form id="travelForm" class="travel-form">
+                <div class="form-section">
+                    <h2><i class="fas fa-map-marked-alt"></i> Trip Details</h2>
+
+                    <div class="form-group">
+                        <label for="tripName">
+                            <i class="fas fa-tag"></i>
+                            Name of Trip <span class="optional">(optional)</span>
+                        </label>
+                        <input type="text" id="tripName" name="tripName" placeholder="e.g., Summer Adventure 2025">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="originCountry">
+                                <i class="fas fa-plane-departure"></i>
+                                Origin Country <span class="required">*</span>
+                            </label>
+                            <input type="text" id="originCountry" name="originCountry" required
+                                placeholder="e.g., United States">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destinationCountry">
+                                <i class="fas fa-plane-arrival"></i>
+                                Destination Country <span class="required">*</span>
+                            </label>
+                            <input type="text" id="destinationCountry" name="destinationCountry" required
+                                placeholder="e.g., Japan">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelDays">
+                            <i class="fas fa-calendar-alt"></i>
+                            How many days do you want to travel? <span class="required">*</span>
+                        </label>
+                        <input type="number" id="travelDays" name="travelDays" required min="1" max="365"
+                            placeholder="e.g., 7">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-suitcase"></i> Travel Arrangements</h2>
+
+                    <div class="form-group">
+                        <label for="flightInfo">
+                            <i class="fas fa-plane"></i>
+                            Flight Ticket Information <span class="required">*</span>
+                        </label>
+                        <textarea id="flightInfo" name="flightInfo" required rows="4"
+                            placeholder="Include departure/arrival dates, flight numbers, airlines, layovers, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hotelInfo">
+                            <i class="fas fa-bed"></i>
+                            Hotel Booking Details <span class="required">*</span>
+                        </label>
+                        <textarea id="hotelInfo" name="hotelInfo" required rows="4"
+                            placeholder="Hotel names, locations, check-in/out dates, room types, amenities, etc."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-heart"></i> Preferences</h2>
+
+                    <div class="form-group">
+                        <label for="budget">
+                            <i class="fas fa-dollar-sign"></i>
+                            Budget <span class="optional">(optional)</span>
+                        </label>
+                        <input type="text" id="budget" name="budget" placeholder="e.g., $3,000 USD total or $200/day">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interests">
+                            <i class="fas fa-star"></i>
+                            Interests & Activities <span class="optional">(optional)</span>
+                        </label>
+                        <textarea id="interests" name="interests" rows="4"
+                            placeholder="What are you interested in? Museums, food tours, adventure sports, nightlife, shopping, cultural experiences, nature, beaches, etc."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-magic"></i>
+                        Generate My Travel Plan
+                    </button>
+                </div>
+            </form>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2><i class="fas fa-robot"></i> Generated AI Prompt</h2>
+                <div class="prompt-container">
+                    <pre id="aiPrompt"></pre>
+                    <button id="copyPrompt" class="copy-btn">
+                        <i class="fas fa-copy"></i>
+                        Copy Prompt
+                    </button>
+                </div>
+                <button id="newPlan" class="new-plan-btn">
+                    <i class="fas fa-plus"></i>
+                    Create New Plan
+                </button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Plan Pilot. Making travel planning effortless with AI.</p>
+        </footer>
+    </div>
+
+    <div id="loading" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-plane"></i>
+            <p>Generating your travel plan...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
